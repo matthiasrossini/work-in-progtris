@@ -1,1 +1,5 @@
+Update Git:
 
+Git add .
+Git commit -m "your message"
+Git push
