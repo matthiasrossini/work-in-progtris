@@ -1,4 +1,4 @@
-blocks = {
+var blocks = {
 	I : [
 	[
 
@@ -288,25 +288,9 @@ var Block = (blockType,rotation) {
 	this.y = -2; 
 }
 
-Block.prototype.rotate = function(){
-	var blockmovement = 0;
-	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
-
-	if (this._collides(0,0,nextblock)){
-		blockmovement = this.x > width / 2 ? -1 : 1;
-	}
-
-	if (!this._collides(blockmovement,0,nextblock)){
-		this.undraw();
-		this.x += blockmovement;
-		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
-		this.blockType = this.blockTypes[this.blockTypeA]
-		this.draw(); 
-	}
-}
-
 var Wall = 1;
 var Block = 2;
+
 Block.prototype._collides = function(dx, dy, pat) {
 	for (var ix = 0; ix < pat.length; ix++) {
 		for (var iy = 0; iy < pat.length; iy++) {
@@ -330,6 +314,49 @@ Block.prototype._collides = function(dx, dy, pat) {
 
 	return false;
 };
+
+Block.prototype.rotate = function(){
+	var blockmovement = 0;
+	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
+
+	if (this._collides(0,0,nextblock)){
+		blockmovement = this.x > width / 2 ? -1 : 1;
+	}
+
+	if (!this._collides(blockmovement,0,nextblock)){
+		this.undraw();
+		this.x += blockmovement;
+		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
+		this.blockType = this.blockTypes[this.blockTypeA]
+		this.draw(); 
+	}
+}
+
+Block.prototype.moveDown = function() {
+	if (this._collides(0, 1, this.blockmovement)) {
+	} else {
+		this.undraw();
+		this.y++;
+		this.draw();
+	}
+};
+
+Block.prototype.moveRight = function() {
+	if (!this._collides(1, 0, this.blockmovement)) {
+		this.undraw();
+		this.x++;
+		this.draw();
+	}
+};
+
+Block.prototype.moveLeft = function() {
+	if (!this._collides(-1, 0, this.blockmovement) {
+		this.undraw();
+		this.x--;
+		this.draw();
+	}
+};
+
 
 
 
