@@ -1,5 +1,5 @@
-var I = [
-
+blocks = {
+	I : [
 	[
 
 		[-, -, -, -],
@@ -46,13 +46,10 @@ var I = [
 
 		[-, X, -, -],
 
-	]
+	]]
 
-];
-
-
-
-var J = [
+/// ---------------------------------------------------------
+	J : [
 
 	[
 
@@ -92,15 +89,10 @@ var J = [
 
 		[X, X, -]
 
-	]
+	]]
 
-];
-
-
-
-var L = [
-
-	[
+/// ---------------------------------------------------------
+	L : [[
 
 		[-, -, X],
 
@@ -138,15 +130,11 @@ var L = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+/// dsfjadskfjadsfjkdjfdkjfakjfkadsjfklasdjfkldjdkjkfjklasjfkldj
 
-
-
-var O = [
-
-	[
+	O :[[
 
 		[-, -, -, -],
 
@@ -156,15 +144,11 @@ var O = [
 
 		[-, -, -, -],
 
-	]
+	]]
 
-];
+/// fadsfnkadsfjkadjfkadfjkladsjfkasdjfkadsjfkdsajfkdjfkldajfkljkldfds
 
-
-
-var S = [
-
-	[
+	S : [[
 
 		[-, X, X],
 
@@ -202,15 +186,11 @@ var S = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+///fadsjkfjsklfjkdalsfjakdlsjfakldsjfdakslfjkadlsfjadksfjkdasjfkjfds
 
-
-
-var T = [
-
-	[
+	T : [[
 
 		[-, X, -],
 
@@ -248,15 +228,11 @@ var T = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+/// dsnadskfkfjdljfaklsjfksjfkadlfjakldfjkfjdksfjadsfdasfadsfdjl
 
-
-
-var Z = [
-
-	[
+	Z : [[
 
 		[X, X, -],
 
@@ -294,36 +270,28 @@ var Z = [
 
 		[X, -, -]
 
-	]
+	]]
 
-];
+}
 
-var Block = (type,rotate) {
-	type = ['I','J','L','O','S','T','Z']{
-		rotate = [0,1,2,3]
-	}
+var Block = (blockType,rotation) {
+	this.blockType = blockType
+	this.rotation = rotation
+	
 }
 
 
-Grid {
-	function generate.Block{
-		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
-		return new Block = (newtype[0],newtype[1]);
-	}
-}
+// Grid {
+// 	function generate.Block{
+// 		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
+// 		return new  = (newtype[0],newtype[1]);
+// 	}
+// }
 
 Block.prototype.rotate = function(){
 	type = Block
 	rotate = rotate + 1 
 }
 
-var Rotate = {
-	Rotate : null,
-	Start : function(){
-		if (!this.Rotate){
-			this.Rotate = 
-		}
-	}
-}
 
 
