@@ -1,12 +1,12 @@
-var Grid = {
+class Grid {
 
-  init: function(){
+  constructor(){
   this.width = 10
   this.height= 20
     this.grid = this.createGrid()
-  },
+  }
 
-  createGrid: function(){
+  createGrid(){
 
 
     var grid = [];
@@ -17,22 +17,22 @@ var Grid = {
       }
     }
     console.log(grid)
-    return grid   
-  },
+    return grid
+  }
 
-  checkCompleteLines: function() {
+  checkCompleteLines() {
       this.grid.ForEach(function(item){
         if (item.reduce((a, b) => a + b, 0) == this.width){
           grid.splice[item, 1]
           grid.splice
-          
+
         }
 
         //item.ForEach(function(iteminlist))
         //iteminlist = 0. (therowbefore)
 
-        //item = item before. 
-  
+        //item = item before.
+
 
     })
       return grid
@@ -43,7 +43,4 @@ var Grid = {
 var my_grid = new Grid()
 // console.log(Grid.createGrid())
 //fct to generate blocks
-//fct to check if it is filled. 
-
-
-
+//fct to check if it is filled.
