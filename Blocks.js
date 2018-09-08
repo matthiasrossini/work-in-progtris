@@ -297,3 +297,21 @@ var Z = [
 	]
 
 ];
+
+var Blocks = ['I','J','L','O','S','T','Z']
+
+Blocks.prototype.rotate = function(){
+	var nudge = 0
+	var nextpat = this.pa
+}
+
+var Rotate = {
+	Rotate : null,
+	Start : function(){
+		if (!this.Rotate){
+			this.Rotate = 
+		}
+	}
+}
+
+
