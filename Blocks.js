@@ -48,7 +48,7 @@ blocks = {
 
 	]]
 
-/// ---------------------------------------------------------
+/// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 	J : [
 
 	[
@@ -91,7 +91,8 @@ blocks = {
 
 	]]
 
-/// ---------------------------------------------------------
+/// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
 	L : [[
 
 		[-, -, X],
@@ -132,7 +133,7 @@ blocks = {
 
 	]]
 
-/// dsfjadskfjadsfjkdjfdkjfakjfkadsjfklasdjfkldjdkjkfjklasjfkldj
+/// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 	O :[[
 
@@ -146,7 +147,7 @@ blocks = {
 
 	]]
 
-/// fadsfnkadsfjkadjfkadfjkladsjfkasdjfkadsjfkdsajfkdjfkldajfkljkldfds
+/// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 	S : [[
 
@@ -188,7 +189,7 @@ blocks = {
 
 	]]
 
-///fadsjkfjsklfjkdalsfjakdlsjfakldsjfdakslfjkadlsfjadksfjkdasjfkjfds
+///[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 	T : [[
 
@@ -230,7 +231,7 @@ blocks = {
 
 	]]
 
-/// dsnadskfkfjdljfaklsjfksjfkadlfjakldfjkfjdksfjadsfdasfadsfdjl
+///[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 	Z : [[
 
@@ -274,7 +275,7 @@ blocks = {
 
 }
 
-///fsdklfdfjdkfdsjfkdsfksjfkasjfkdfdfdjskfdfdsojffdsfjfjdsfasdlfkdsföldfdflsdakfdk
+///##########[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[5]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 var Block = (blockType,rotation) {
 	this.blockType = blockTypes[0];
@@ -291,7 +292,7 @@ Block.prototype.rotate = function(){
 	var blockmovement = 0;
 	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-	if (this._collides(0,00,nextblock)){
+	if (this._collides(0,0,nextblock)){
 		blockmovement = this.x > width / 2 ? -1 : 1;
 	}
 
@@ -329,6 +330,8 @@ Block.prototype._collides = function(dx, dy, pat) {
 
 	return false;
 };
+
+
 
 // Grid {
 // 	function generate.Block{
