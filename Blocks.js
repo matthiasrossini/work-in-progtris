@@ -3,7 +3,7 @@ var blocks = {
 
 		["-", "-", "-", "-"],
 
-		[X, X, X, X],
+		["X", "X", "X", "X"],
 
 		["-", "-", "-", "-"],
 
@@ -13,37 +13,37 @@ var blocks = {
 
 	[
 
-		["-", "-", X, "-"],
+		["-", "-", "X", "-"],
 
-		["-", "-", X, "-"],
+		["-", "-", "X", "-"],
 
-		["-", "-", X, "-"],
+		["-", "-", "X", "-"],
 
-		["-", "-", X, "-"],
-
-	],
-
-	[
-
-		["-", "-", "-", "-"],
-
-		["-", "-", "-", "-"],
-
-		[X, X, X, X],
-
-		["-", "-", "-", "-"],
+		["-", "-", "X", "-"],
 
 	],
 
 	[
 
-		["-", X, "-", "-"],
+		["-", "-", "-", "-"],
 
-		["-", X, "-", "-"],
+		["-", "-", "-", "-"],
 
-		["-", X, "-", "-"],
+		["X", "X", "X", "X"],
 
-		["-", X, "-", "-"],
+		["-", "-", "-", "-"],
+
+	],
+
+	[
+
+		["-", "X", "-", "-"],
+
+		["-", "X", "-", "-"],
+
+		["-", "X", "-", "-"],
+
+		["-", "X", "-", "-"],
 
 	]],
 
@@ -51,9 +51,9 @@ var blocks = {
 	
 	J : [[
 
-		[X, "-", "-"],
+		["X", "-", "-"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
 		["-", "-", "-"]
 
@@ -61,11 +61,11 @@ var blocks = {
 
 	[
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	],
 
@@ -73,19 +73,19 @@ var blocks = {
 
 		["-", "-", "-"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
-		["-", "-", X]
+		["-", "-", "X"]
 
 	],
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		[X, X, "-"]
+		["X", "X", "-"]
 
 	]],
 
@@ -93,9 +93,9 @@ var blocks = {
 
 	L : [[
 
-		["-", "-", X],
+		["-", "-", "X"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
 		["-", "-", "-"]
 
@@ -103,11 +103,11 @@ var blocks = {
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, X]
+		["-", "X", "X"]
 
 	],
 
@@ -115,19 +115,19 @@ var blocks = {
 
 		["-", "-", "-"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
-		[X, "-", "-"]
+		["X", "-", "-"]
 
 	],
 
 	[
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	]],
 
@@ -137,9 +137,9 @@ var blocks = {
 
 		["-", "-", "-", "-"],
 
-		["-", X, X, "-"],
+		["-", "X", "X", "-"],
 
-		["-", X, X, "-"],
+		["-", "X", "X", "-"],
 
 		["-", "-", "-", "-"],
 
@@ -149,9 +149,9 @@ var blocks = {
 
 	S : [[
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
 		["-", "-", "-"]
 
@@ -159,11 +159,11 @@ var blocks = {
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		["-", "-", X]
+		["-", "-", "X"]
 
 	],
 
@@ -171,19 +171,19 @@ var blocks = {
 
 		["-", "-", "-"],
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		[X, X, "-"]
+		["X", "X", "-"]
 
 	],
 
 	[
 
-		[X, "-", "-"],
+		["X", "-", "-"],
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	]],
 
@@ -191,9 +191,9 @@ var blocks = {
 
 	T : [[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
 		["-", "-", "-"]
 
@@ -201,11 +201,11 @@ var blocks = {
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	],
 
@@ -213,19 +213,19 @@ var blocks = {
 
 		["-", "-", "-"],
 
-		[X, X, X],
+		["X", "X", "X"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	],
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	]],
 
@@ -233,9 +233,9 @@ var blocks = {
 
 	Z : [[
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		["-", X, X],
+		["-", "X", "X"],
 
 		["-", "-", "-"]
 
@@ -243,11 +243,11 @@ var blocks = {
 
 	[
 
-		["-", "-", X],
+		["-", "-", "X"],
 
-		["-", X, X],
+		["-", "X", "X"],
 
-		["-", X, "-"]
+		["-", "X", "-"]
 
 	],
 
@@ -255,19 +255,19 @@ var blocks = {
 
 		["-", "-", "-"],
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		["-", X, X]
+		["-", "X", "X"]
 
 	],
 
 	[
 
-		["-", X, "-"],
+		["-", "X", "-"],
 
-		[X, X, "-"],
+		["X", "X", "-"],
 
-		[X, "-", "-"]
+		["X", "-", "-"]
 
 	]]
 
@@ -282,7 +282,7 @@ var Block = (blockType,rotation) {
 
 	this.rotation = rotation
 
-	this.x = width/2"-"parseInt(Math.ceil(this.blockType.length/2),10);
+	this."X" = width/2"-"parseInt(Math.ceil(this.blockType.length/2),10);
 	this.y = "-"2; 
 }
 
@@ -290,22 +290,22 @@ var Block = (blockType,rotation) {
 var Wall = 1;
 var Block = 2;
 
-Block.prototype._collides = function(dx, dy, pat) {
-	for (var ix = 0; ix < pat.length; ix++) {
+Block.prototype._collides = function(d"X", dy, pat) {
+	for (var i"X" = 0; i"X" < pat.length; i"X"++) {
 		for (var iy = 0; iy < pat.length; iy++) {
-			if (!pat[ix][iy]) {
+			if (!pat[i"X"][iy]) {
 				continue;
 			}
 
-			var x = this.x + ix + dx;
+			var "X" = this."X" + i"X" + d"X";
 			var y = this.y + iy + dy;
-			if (y >= height || x < 0 || x >= width) {
+			if (y >= height || "X" < 0 || "X" >= width) {
 				return true;
 			}
 			if (y < 0) {
 				continue;
 			}
-			if (board[y][x]) {
+			if (board[y]["X"]) {
 				return true;
 			}
 		}
@@ -316,15 +316,15 @@ Block.prototype._collides = function(dx, dy, pat) {
 
 Block.prototype.rotate = function(){
 	var blockmovement = 0;
-	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
+	var ne"X"tblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-	if (this._collides(0,0,nextblock)){
-		blockmovement = this.x > width / 2 ? "-"1 : 1;
+	if (this._collides(0,0,ne"X"tblock)){
+		blockmovement = this."X" > width / 2 ? "-"1 : 1;
 	}
 
-	if (!this._collides(blockmovement,0,nextblock)){
+	if (!this._collides(blockmovement,0,ne"X"tblock)){
 		this.undraw();
-		this.x += blockmovement;
+		this."X" += blockmovement;
 		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
 		this.blockType = this.blockTypes[this.blockTypeA]
 		this.draw(); 
@@ -343,7 +343,7 @@ Block.prototype.moveDown = function() {
 Block.prototype.moveRight = function() {
 	if (!this._collides(1, 0, this.blockmovement)) {
 		this.undraw();
-		this.x++;
+		this."X"++;
 		this.draw();
 	}
 };
@@ -351,7 +351,7 @@ Block.prototype.moveRight = function() {
 Block.prototype.moveLeft = function() {
 	if (!this._collides("-"1, 0, this.blockmovement) {
 		this.undraw();
-		this.x"-""-";
+		this."X""-""-";
 		this.draw();
 	}
 };
