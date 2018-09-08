@@ -1,0 +1,22 @@
+{
+  "name": "work-in-progtris",
+  "version": "1.0.0",
+  "description": "Fluffiest Waffles since the beginning of time",
+  "main": "tetrisgame.js",
+  "scripts": {
+    "test": "#"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthiasrossini/work-in-progtris.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthiasrossini/work-in-progtris/issues"
+  },
+  "homepage": "https://github.com/matthiasrossini/work-in-progtris#readme",
+  "dependencies": {
+    "keypress": "^0.2.1"
+  }
+}
