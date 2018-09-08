@@ -357,15 +357,46 @@ Block.prototype.moveLeft = function() {
 	}
 };
 
+var dropStart = Date.now();
+document.body.addEventListener("keypress", function (e) {
+	if (e.keyCode == 38) { // Player pressed up
+		Block.rotate();
+		dropStart = Date.now();
+	}
+	if (e.keyCode == 40) { // Player holding down
+		Block.moveDown();
+	}
+	if (e.keyCode == 37) { // Player holding left
+		Block.moveLeft();
+		dropStart = Date.now();
+	}
+	if (e.keyCode == 39) { // Player holding right
+		Block.moveRight();
+		dropStart = Date.now();
+	}
+}, false);
 
+var done = false;
+function main() {
+	var now = Date.now();
+	var delta = now - dropStart;
 
+	if (delta > 1000) {
+		piece.moveDown();
+		dropStart = now;
+	}
 
-// Grid {
-// 	function generate.Block{
-// 		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
-// 		return new  = (newtype[0],newtype[1]);
-// 	}
-// }
+	if (!done) {
+		requestAnimationFrame(main); // reset script every second (loop)
+	}
+}
+main();
+
+generate.Block = function() {
+	var newtype = Block[parseInt(Math.random()*Block.length, 10)]
+	return new  = (newtype[0],newtype[1]);
+	}
+}
 
 
 
