@@ -280,13 +280,26 @@ var Block = (blockType,rotation) {
 	this.blockTypeA = 0
 
 	this.rotation = rotation
+
+	this.x = width/2-parseInt(Math.ceil(this.blockType.length/2),10);
+	this.y = -2; 
 }
 
 Block.prototype.rotate = function(){
 	var blockmovement = 0;
-	var nextmovement =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
+	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-	
+	if (this._collides(0,00,nextblock)){
+		blockmovement = this.x > width / 2 ? -1 : 1;
+	}
+
+	if (!this._collides(blockmovement,0,nextblock)){
+		this.undraw();
+		this.x += blockmovement;
+		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
+		this.blockType = this.blockTypes[this.blockTypeA]
+		this.draw(); 
+	}
 }
 
 // Grid {
