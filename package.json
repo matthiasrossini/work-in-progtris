@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/matthiasrossini/work-in-progtris/issues"
   },
-  "homepage": "https://github.com/matthiasrossini/work-in-progtris#readme"
+  "homepage": "https://github.com/matthiasrossini/work-in-progtris#readme",
+  "dependencies": {
+    "keypress": "^0.2.1"
+  }
 }
