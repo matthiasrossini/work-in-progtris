@@ -307,16 +307,14 @@ var Block = (type,rotate) {
 
 Grid {
 	function generate.Block{
-		type = Block[parseInt(Math.random()*Block.length, 10)]
-		return new Block(p[0],p[1]);
+		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
+		return new Block = (newtype[0],newtype[1]);
 	}
 }
 
 Block.prototype.rotate = function(){
 	type = Block
 	rotate = rotate + 1 
-	return 
-
 }
 
 var Rotate = {
