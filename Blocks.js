@@ -291,7 +291,7 @@ Block.prototype.rotate = function(){
 	var blockmovement = 0;
 	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-	if (this._collides(0,00,nextblock)){
+	if (this._collides(0,0,nextblock)){
 		blockmovement = this.x > width / 2 ? -1 : 1;
 	}
 
