@@ -1,13 +1,13 @@
 class Grid {
 
   constructor(){
-  this.width = 10
-  this.height= 20
+    this.width = 10
+    this.height= 20
     this.grid = this.createGrid()
   }
 
   createGrid(){
-
+    
 
     var grid = [];
     for (var row = 0; row < this.height; row ++){
@@ -21,22 +21,22 @@ class Grid {
   }
 
   checkCompleteLines() {
-      this.grid.ForEach(function(item){
-        if (item.reduce((a, b) => a + b, 0) == this.width){
-          grid.splice[item, 1]
-          grid.splice
+    this.grid.ForEach(function(item){
+      if (item.reduce((a, b) => a + b, 0) == this.width){
+        grid.splice[item, 1]
+        grid.splice
 
-        }
+      }
 
-        //item.ForEach(function(iteminlist))
-        //iteminlist = 0. (therowbefore)
+      //item.ForEach(function(iteminlist))
+      //iteminlist = 0. (therowbefore)
 
-        //item = item before.
+      //item = item before.
 
 
     })
-      return grid
-    }
+    return grid
+  }
 }
 
 
