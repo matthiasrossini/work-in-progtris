@@ -298,11 +298,25 @@ var Z = [
 
 ];
 
-var Blocks = ['I','J','L','O','S','T','Z']
+var Block = (type,rotate) {
+	type = ['I','J','L','O','S','T','Z']{
+		rotate = [0,1,2,3]
+	}
+}
 
-Blocks.prototype.rotate = function(){
-	var nudge = 0
-	var nextpat = this.pa
+
+Grid {
+	function generate.Block{
+		type = Block[parseInt(Math.random()*Block.length, 10)]
+		return new Block(p[0],p[1]);
+	}
+}
+
+Block.prototype.rotate = function(){
+	type = Block
+	rotate = rotate + 1 
+	return 
+
 }
 
 var Rotate = {
