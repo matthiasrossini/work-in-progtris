@@ -1,5 +1,5 @@
-var I = [
-
+blocks = {
+	I : [
 	[
 
 		[-, -, -, -],
@@ -46,13 +46,10 @@ var I = [
 
 		[-, X, -, -],
 
-	]
+	]]
 
-];
-
-
-
-var J = [
+/// ---------------------------------------------------------
+	J : [
 
 	[
 
@@ -92,15 +89,10 @@ var J = [
 
 		[X, X, -]
 
-	]
+	]]
 
-];
-
-
-
-var L = [
-
-	[
+/// ---------------------------------------------------------
+	L : [[
 
 		[-, -, X],
 
@@ -138,15 +130,11 @@ var L = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+/// dsfjadskfjadsfjkdjfdkjfakjfkadsjfklasdjfkldjdkjkfjklasjfkldj
 
-
-
-var O = [
-
-	[
+	O :[[
 
 		[-, -, -, -],
 
@@ -156,15 +144,11 @@ var O = [
 
 		[-, -, -, -],
 
-	]
+	]]
 
-];
+/// fadsfnkadsfjkadjfkadfjkladsjfkasdjfkadsjfkdsajfkdjfkldajfkljkldfds
 
-
-
-var S = [
-
-	[
+	S : [[
 
 		[-, X, X],
 
@@ -202,15 +186,11 @@ var S = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+///fadsjkfjsklfjkdalsfjakdlsjfakldsjfdakslfjkadlsfjadksfjkdasjfkjfds
 
-
-
-var T = [
-
-	[
+	T : [[
 
 		[-, X, -],
 
@@ -248,15 +228,11 @@ var T = [
 
 		[-, X, -]
 
-	]
+	]]
 
-];
+/// dsnadskfkfjdljfaklsjfksjfkadlfjakldfjkfjdksfjadsfdasfadsfdjl
 
-
-
-var Z = [
-
-	[
+	Z : [[
 
 		[X, X, -],
 
@@ -294,36 +270,73 @@ var Z = [
 
 		[X, -, -]
 
-	]
+	]]
 
-];
-
-var Block = (type,rotate) {
-	type = ['I','J','L','O','S','T','Z']{
-		rotate = [0,1,2,3]
-	}
 }
 
+///fsdklfdfjdkfdsjfkdsfksjfkasjfkdfdfdjskfdfdsojffdsfjfjdsfasdlfkdsföldfdflsdakfdk
 
-Grid {
-	function generate.Block{
-		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
-		return new Block = (newtype[0],newtype[1]);
-	}
+var Block = (blockType,rotation) {
+	this.blockType = blockTypes[0];
+	this.blockTypes = blockTypes
+	this.blockTypeA = 0
+
+	this.rotation = rotation
+
+	this.x = width/2-parseInt(Math.ceil(this.blockType.length/2),10);
+	this.y = -2; 
 }
 
 Block.prototype.rotate = function(){
-	type = Block
-	rotate = rotate + 1 
-}
+	var blockmovement = 0;
+	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-var Rotate = {
-	Rotate : null,
-	Start : function(){
-		if (!this.Rotate){
-			this.Rotate = 
-		}
+	if (this._collides(0,00,nextblock)){
+		blockmovement = this.x > width / 2 ? -1 : 1;
+	}
+
+	if (!this._collides(blockmovement,0,nextblock)){
+		this.undraw();
+		this.x += blockmovement;
+		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
+		this.blockType = this.blockTypes[this.blockTypeA]
+		this.draw(); 
 	}
 }
+
+var Wall = 1;
+var Block = 2;
+Block.prototype._collides = function(dx, dy, pat) {
+	for (var ix = 0; ix < pat.length; ix++) {
+		for (var iy = 0; iy < pat.length; iy++) {
+			if (!pat[ix][iy]) {
+				continue;
+			}
+
+			var x = this.x + ix + dx;
+			var y = this.y + iy + dy;
+			if (y >= height || x < 0 || x >= width) {
+				return true;
+			}
+			if (y < 0) {
+				continue;
+			}
+			if (board[y][x]) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+};
+
+// Grid {
+// 	function generate.Block{
+// 		var newtype = Block[parseInt(Math.random()*Block.length, 10)]
+// 		return new  = (newtype[0],newtype[1]);
+// 	}
+// }
+
+
 
 
