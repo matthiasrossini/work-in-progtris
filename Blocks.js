@@ -282,30 +282,30 @@ var Block = (blockType,rotation) {
 
 	this.rotation = rotation
 
-	this."X" = width/2"-"parseInt(Math.ceil(this.blockType.length/2),10);
-	this.y = "-"2; 
+	this.x = width/2-parseInt(Math.ceil(this.blockType.length/2),10);
+	this.y = -2; 
 }
 
 
 var Wall = 1;
 var Block = 2;
 
-Block.prototype._collides = function(d"X", dy, pat) {
-	for (var i"X" = 0; i"X" < pat.length; i"X"++) {
+Block.prototype._collides = function(dx, dy, pat) {
+	for (var ix = 0; ix < pat.length; ix++) {
 		for (var iy = 0; iy < pat.length; iy++) {
-			if (!pat[i"X"][iy]) {
+			if (!pat[ix][iy]) {
 				continue;
 			}
 
-			var "X" = this."X" + i"X" + d"X";
+			var x = this.x + ix + dx;
 			var y = this.y + iy + dy;
-			if (y >= height || "X" < 0 || "X" >= width) {
+			if (y >= height || x < 0 || x >= width) {
 				return true;
 			}
 			if (y < 0) {
 				continue;
 			}
-			if (board[y]["X"]) {
+			if (board[y][x]) {
 				return true;
 			}
 		}
@@ -316,15 +316,15 @@ Block.prototype._collides = function(d"X", dy, pat) {
 
 Block.prototype.rotate = function(){
 	var blockmovement = 0;
-	var ne"X"tblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
+	var nextblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
 
-	if (this._collides(0,0,ne"X"tblock)){
-		blockmovement = this."X" > width / 2 ? "-"1 : 1;
+	if (this._collides(0,0,nextblock)){
+		blockmovement = this.x > width / 2 ? -1 : 1;
 	}
 
-	if (!this._collides(blockmovement,0,ne"X"tblock)){
+	if (!this._collides(blockmovement,0,nextblock)){
 		this.undraw();
-		this."X" += blockmovement;
+		this.x += blockmovement;
 		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
 		this.blockType = this.blockTypes[this.blockTypeA]
 		this.draw(); 
@@ -343,15 +343,15 @@ Block.prototype.moveDown = function() {
 Block.prototype.moveRight = function() {
 	if (!this._collides(1, 0, this.blockmovement)) {
 		this.undraw();
-		this."X"++;
+		this.x++;
 		this.draw();
 	}
 };
 
 Block.prototype.moveLeft = function() {
-	if (!this._collides("-"1, 0, this.blockmovement) {
+	if (!this._collides(-1, 0, this.blockmovement) {
 		this.undraw();
-		this."X""-""-";
+		this.x--;
 		this.draw();
 	}
 };
@@ -378,7 +378,7 @@ document.body.addEventListener("keypress", function (e) {
 var done = false;
 function main() {
 	var now = Date.now();
-	var delta = now "-" dropStart;
+	var delta = now - dropStart;
 
 	if (delta > 1000) {
 		piece.moveDown();
