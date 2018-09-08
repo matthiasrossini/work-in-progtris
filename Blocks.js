@@ -275,11 +275,19 @@ blocks = {
 }
 
 var Block = (blockType,rotation) {
-	this.blockType = blockType
+	this.blockType = blockTypes[0];
+	this.blockTypes = blockTypes
+	this.blockTypeA = 0
+
 	this.rotation = rotation
-	
 }
 
+Block.prototype.rotate = function(){
+	var blockmovement = 0;
+	var nextmovement =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
+
+	
+}
 
 // Grid {
 // 	function generate.Block{
@@ -288,10 +296,6 @@ var Block = (blockType,rotation) {
 // 	}
 // }
 
-Block.prototype.rotate = function(){
-	type = Block
-	rotate = rotate + 1 
-}
 
 
 
