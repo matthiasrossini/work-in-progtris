@@ -276,12 +276,13 @@ var blocks = {
 ///[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 class Block{
-	constructor(blockType, rotation){
-		this.blockType = blocks[blockType];
-		console.log(blockType, rotation)
-		// this.rotation = rotation
-		// this.blockShape = blockType[this.rotation]
-		console.log(this.blockType[rotation])
+	constructor(blockType, rotation, blockRow, blockCol){
+		this.blockKind = blocks[blockType];
+		this.tetronimo = blocks[blockType][rotation]
+		this.row = blockRow
+		this.col = blockCol
+
+		return
 	}
 }
 

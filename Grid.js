@@ -7,7 +7,9 @@ class Grid {
     this.height = 20
     this.grid = this.createGrid()
     this.block = this.createBlock()
+    console.log(this.block)
   }
+
 
   createGrid(){
     var grid = [];
@@ -28,18 +30,33 @@ class Grid {
         grid.splice(0,0,new Array(width).fill(0))
       }
     })
+    // this.block = this.createBlock()
     return grid
   }
 
   createBlock() {
     var blockTypes = ["I","J","O","S","T","Z"]
-    var rotations = [0,1,2,3]
+    var rotations = [0,1,2,3] // allows for more fair selection/distribution
 
+
+    var blockCol = Math.floor(Math.random()*(this.width-4))
+    var blockRow = 0
     var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
-    var rotation = rotations[Math.floor(Math.random()*rotations.length)]
+    var rotation = rotations[Math.floor(Math.random()*this.rotation)]
 
-    var block = new Block(blockType, rotation);
+    var block = new Block(blockType, rotation, blockRow, blockCol);
 
+    return block
+  }
+
+  draw(block){
+    gridRow = block.blockRow
+    gridCol = block.blockCol
+
+  }
+
+  rotate(){
+    this.grid = this.block.rotate()
   }
 }
 
