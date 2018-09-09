@@ -7,6 +7,8 @@ class Grid {
     this.height = 20
     this.grid = this.createGrid()
     this.block = this.createBlock()
+    this.draw(this.block)
+
     console.log(this.block)
   }
 
@@ -44,15 +46,24 @@ class Grid {
     var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
     var rotation = rotations[Math.floor(Math.random()*this.rotation)]
 
-    var block = new Block(blockType, rotation, blockRow, blockCol);
-
+    var block = new Block("J", 0, blockRow, blockCol);
     return block
   }
 
   draw(block){
-    gridRow = block.blockRow
-    gridCol = block.blockCol
-
+    console.log(block)
+    var gridRow = block.row
+    var gridCol = block.col
+    var grid = this.grid
+    
+    block.tetronimo.forEach(function(row,xPos){
+      row.forEach(function(val, yPos){
+        grid[xPos + gridRow][yPos + gridCol] = val
+      })
+    })
+    console.log(grid)
+//put block into grid, like... grid (0)(blockCol)
+//How do we make it with the slow appearing?
   }
 
   rotate(){
