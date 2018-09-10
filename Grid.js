@@ -101,59 +101,28 @@ class Grid {
 
   collisionBlock (block){
   var grid = this.grid
+  var height = this.height
   //wenn unter 1 im block, eine 1 in grid.
   // wenn ypos block
     for (const [yPos, row] of block.tetronimo.entries()){
       for(const[xPos, el] of row.entries()){
-      if(yPos < block.tetronimo.length-1){
-         if(block.tetronimo[yPos+1][xPos] !== 1){
-           if(block.tetronimo[yPos][xPos] == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
-               return true
-             }
-         }
-      } else {
-        // if(yPos)
-        if(block.row +yPos < 20-1){
-        if(el == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
+        if(yPos < block.tetronimo.length-1){ // if less than bottom row
+           if(block.tetronimo[yPos+1][xPos] !== 1){
+             if(block.tetronimo[yPos][xPos] == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
+                 return true
+               }
+           }
+        } else { // if bottom row
+          // if(yPos)
+          if(block.row+yPos < this.height-1){
+            if(block.tetronimo[yPos][xPos] == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
               return true
             }
+        }
+    }
       }
     }
-        term.red(block.tetronimo[yPos][xPos])
-      }
-    }
-    // block.tetronimo.forEach(function(row, yPos){
-    //   return true
-    //   term.red(block.tetronimo[yPos])
-    //   row.forEach(function(element,xPos){
-    //     if(yPos !== block.tetronimo.length-1){
-    //     console.log(grid[block.row+yPos+1][xPos])
-    //       if(block.tetronimo[yPos+1][xPos] !== 1){
-    //         console.log("DERP")
-    //         if(block.tetronimo[yPos][xPos] == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
-    //           console.log("oeuaeouoeauoe")
-    //           return true
-    //         } else {
-    //           return false
-    //         }
-    //       }
-    //
-    //   } else {
-    //     term.cyan(block.tetronimo[yPos])
-    //     return true
-    //     console.log("jjjj")
-    //     // break;
-    //     console.log(grid[block.row + yPos+1][block.col + xPos])
-    //     if(element == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
-    //       // console.log("sshtshsts")
-    //       return true
-    //     } else {
-    //       return false
-    //     }
-    //
-    //   }
-    //   })
-    // })
+
 }
 
   mainLoop(){
@@ -176,7 +145,6 @@ class Grid {
         this.undraw(this.block)
         this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)
-
 
   }
 
