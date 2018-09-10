@@ -299,13 +299,17 @@ var blocks = {
 
 class Block{
 	constructor(blockType, rotation, blockRow, blockCol){
-		console.log(blockType, rotation)
 		this.blockKind = blocks[blockType];
 		this.tetronimo = blocks[blockType][rotation]
 		this.row = blockRow
 		this.col = blockCol
 
 		return
+	}
+
+	updatePos(yPos, xPos){
+		this.row = yPos
+		this.col = xPos
 	}
 }
 

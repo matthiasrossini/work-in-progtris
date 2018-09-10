@@ -6,10 +6,8 @@ class Grid {
     this.width = 10
     this.height = 20
     this.grid = this.createGrid()
-    this.block = this.createBlock()
-    this.draw(this.block)
-
-    console.log(this.block)
+    this.mainLoop()
+    
   }
 
 
@@ -51,7 +49,6 @@ class Grid {
   }
 
   draw(block){
-    console.log(block)
     var gridRow = block.row
     var gridCol = block.col
     var grid = this.grid
@@ -80,10 +77,73 @@ class Grid {
 //How do we make it with the slow appearing?
   }
 
-  rotate(){
-    this.grid = this.block.rotate()
+  mainLoop(){
+    var collision = false
+    this.block = this.createBlock()
+    while(collision == false){
+      this.draw(this.block)
+      this.undraw(this.block)
+      this.block.updatePos(this.block.row +1, this.block.col)
+
+    }
   }
+  collisionCheck(){
+    var grid = this.grid
+   /* grid.forEach(function(row,yPos){
+      if (yPos == this.height){
+        return false
+      }
+      row.forEach(function(element, xPos){
+
+      })
+    })*/
+  }
+
+  /*loop(block){
+    var A = Collision
+    Collision(block){
+      (if gridRow + 1 == 1)
+      createBlock()
+    }
+
+    
+    while(A=True){
+      
+    }; (undraw(block);
+      redraw(block) )
+
+  }*/
+
+ undraw(block){
+  var grid = this.grid
+  block.tetronimo.forEach(function(row,yPos){
+      row.forEach(function(element,xPos){
+        if(element == 1){
+          grid[yPos + block.row][xPos + block.col] = 0
+        }
+      })
+    })
+  }
+
+/*  redraw(block){
+    var gridRow = block.row
+    var gridCol = block.col
+    var grid = this.grid
+
+      block.tetronimo.forEach(function(row,yPos){
+      row.forEach(function(element, xPos){
+        grid[yPos + gridRow][xPos + gridCol] = block.tetronimo[yPos+1][xPos]
+
+    console.log(grid)
+  })})}*/
+
+ /* collision(block){
+    while(A=no collision continue loop and then destruct block and new block)
+
+  }*/
+
 }
+
 
 
 var my_grid = new Grid()
