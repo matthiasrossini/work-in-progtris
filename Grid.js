@@ -5,9 +5,7 @@ var term = require("terminal-kit").terminal
 // termRect = new term.Rect(0,20,0,40)
 // term()
 term.reset()
-const sleep = (milliseconds) => {
-  return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
+
 class Grid {
 
   constructor(){ // __init__: //the this. is the self.
@@ -18,7 +16,6 @@ class Grid {
 
     // example shitty code - wait2 secs to render next step
      // this.draw(this.block, 0xff, 0x33, 0x88)
-
   }
 
 
@@ -134,6 +131,7 @@ class Grid {
        
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
           clearInterval(loop)
+          this.mainLoop()
       }
        
         this.undraw(this.block)
@@ -151,20 +149,6 @@ class Grid {
       term("\n")
     })
   }
-  /*loop(block){
-    var A = Collision
-    Collision(block){
-      (if gridRow + 1 == 1)
-      createBlock()
-    }
-
-
-    while(A=True){
-
-    }; (undraw(block);
-      redraw(block) )
-
-  }*/
 
  undraw(block){
   var grid = this.grid
@@ -176,24 +160,6 @@ class Grid {
       })
     })
   }
-
-/*  redraw(block){
-    var gridRow = block.row
-    var gridCol = block.col
-    var grid = this.grid
-
-      block.tetronimo.forEach(function(row,yPos){
-      row.forEach(function(element, xPos){
-        grid[yPos + gridRow][xPos + gridCol] = block.tetronimo[yPos+1][xPos]
-
-    console.log(grid)
-  })})}*/
-
- /* collision(block){
-    while(A=no collision continue loop and then destruct block and new block)
-
-  }*/
-
 }
 
 
