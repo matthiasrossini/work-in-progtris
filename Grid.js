@@ -125,20 +125,6 @@ class Grid {
     var groundCollided = false
     this.block = this.createBlock()
 
-// <<<<<<< HEAD
-//       this.draw(this.block)
-      
-
-//       console.log(blockCollided, groundCollided)
-      
-//       this.undraw(this.block)
-//       this.block.updatePos(this.block.row +1, this.block.col)
-//     }
-// =======
-
-    // while(collision == false){
-      // setInterval(() => {
-  // while(blockCollided == false && groundCollided == false){
      var loop = setInterval(()=> {
         console.log("block")
         this.draw(this.block)
@@ -153,8 +139,7 @@ class Grid {
         this.undraw(this.block)
         this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)
- //  }
-      // }, 250)
+
 
   }
     
