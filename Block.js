@@ -133,17 +133,39 @@ var blocks = {
 
 /// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
-	O :[[
+	O :[
+		[[0, 0, 0, 0],
 
-		[0, 0, 0, 0],
+		[0, 1, 1, 0],
+
+		[0, 1, 1, 0],
+
+		[0, 0, 0, 0]],
+		// NEW ROT
+		[[0, 0, 0, 0],
 
 		[0, 1, 1, 0],
 
 		[0, 1, 1, 0],
 
-		[0, 0, 0, 0],
+		[0, 0, 0, 0]],
+		// NEW ROT
+		[[0, 0, 0, 0],
 
-	]],
+		[0, 1, 1, 0],
+
+		[0, 1, 1, 0],
+
+		[0, 0, 0, 0]],
+		// NEW ROT
+		[[0, 0, 0, 0],
+
+		[0, 1, 1, 0],
+
+		[0, 1, 1, 0],
+
+		[0, 0, 0, 0]]
+	],
 
 /// [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
@@ -277,6 +299,7 @@ var blocks = {
 
 class Block{
 	constructor(blockType, rotation, blockRow, blockCol){
+		console.log(blockType, rotation)
 		this.blockKind = blocks[blockType];
 		this.tetronimo = blocks[blockType][rotation]
 		this.row = blockRow

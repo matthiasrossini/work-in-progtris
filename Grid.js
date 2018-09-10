@@ -1,5 +1,5 @@
 var Block = require("./Block.js");
-
+var term = require("terminal-kit")
 class Grid {
 
   constructor(){ // __init__:
@@ -44,9 +44,9 @@ class Grid {
     var blockCol = Math.floor(Math.random()*(this.width-4))
     var blockRow = 0
     var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
-    var rotation = rotations[Math.floor(Math.random()*this.rotation)]
+    var rotation = rotations[Math.floor(Math.random()*rotations.length)]
 
-    var block = new Block("J", 0, blockRow, blockCol);
+    var block = new Block(blockType, rotation, blockRow, blockCol);
     return block
   }
 
@@ -55,7 +55,7 @@ class Grid {
     var gridRow = block.row
     var gridCol = block.col
     var grid = this.grid
-    
+
     block.tetronimo.forEach(function(row,xPos){
       row.forEach(function(val, yPos){
         grid[xPos + gridRow][yPos + gridCol] = val
