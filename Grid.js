@@ -1,5 +1,5 @@
 var Block = require("./Block.js");
-var term = require("terminal-kit")
+var term = require("terminal-kit").terminal
 class Grid {
 
   constructor(){ // __init__:
