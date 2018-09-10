@@ -104,13 +104,19 @@ class Grid {
   // wenn ypos block 
     block.tetronimo.forEach(function(row, yPos){
       row.forEach(function(element,xPos){
-        if((yPos < block.tetronimo.length && (block.tetronimo[yPos+1] !== 1)) || (yPos == block.tetronimo.length)){
-          // check grid here
-          // the lines are an or$
-          if(element == 1 && block.tetronimo[yPos+1] == 1){
-            return true
-          } 
+        if(yPos < block.tetronimo.length-1){
+        console.log(grid[block.row+yPos+1][xPos])
+          if(block.tetronimo[yPos+1][xPos] !== 1){
+            if(block.tetronimo[yPos][xPos] == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
+              return true
+            } 
+          } else {
+            if(element == 1 && grid[block.row + yPos+1][block.col + xPos] == 1){
+              return true
+            } 
         }
+
+       } 
       })
     })
     return false
@@ -128,8 +134,8 @@ class Grid {
 
        blockCollided = this.collisionBlock(this.block)
        groundCollided = this.collisionGround(this.block)
-       
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
+       console.log(blockCollided, groundCollided)
           clearInterval(loop)
           this.mainLoop()
       }
