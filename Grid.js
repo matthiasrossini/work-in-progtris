@@ -15,7 +15,7 @@ class Grid {
     this.height = 20
     this.grid = this.createGrid()
     this.mainLoop()
-    
+
     // example shitty code - wait2 secs to render next step
      // this.draw(this.block, 0xff, 0x33, 0x88)
 
@@ -92,11 +92,21 @@ class Grid {
   mainLoop(){
     var collision = false
     this.block = this.createBlock()
-    while(collision == false){
-      this.draw(this.block)
-      this.undraw(this.block)
-      this.block.updatePos(this.block.row +1, this.block.col)
-    }
+
+
+    // while(collision == false){
+      // setInterval(() => {
+      setInterval(()=> {
+        console.log("block")
+        this.draw(this.block)
+        this.undraw(this.block)
+
+        this.block.updatePos(this.block.row+1,this.block.col)
+        console.log(this.block)
+    }, 250)
+      // }, 250)
+
+    // }
   }
   /*collisionCheck(){
     var grid = this.grid
@@ -122,9 +132,9 @@ class Grid {
       createBlock()
     }
 
-    
+
     while(A=True){
-      
+
     }; (undraw(block);
       redraw(block) )
 
