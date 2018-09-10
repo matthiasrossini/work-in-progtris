@@ -1,7 +1,7 @@
 var blocks = {
 	I : [[
 
-
+		
 
 		[1, 1, 1, 1],
 
@@ -22,9 +22,9 @@ var blocks = {
 
 	[
 
+		
 
-
-
+		
 
 		[0, 1, 1, 1],
 
@@ -203,6 +203,8 @@ var blocks = {
 
 		[1, 1, 1],
 
+		[0, 0, 0]
+
 	],
 
 	[
@@ -216,6 +218,8 @@ var blocks = {
 	],
 
 	[
+
+		[0, 0, 0],
 
 		[1, 1, 1],
 
@@ -241,6 +245,8 @@ var blocks = {
 
 		[0, 1, 1],
 
+		[0, 0, 0]
+
 	],
 
 	[
@@ -254,6 +260,8 @@ var blocks = {
 	],
 
 	[
+
+		[0, 0, 0],
 
 		[1, 1, 0],
 
@@ -289,7 +297,6 @@ class Block{
 	updatePos(yPos, xPos){
 		this.row = yPos
 		this.col = xPos
-		// return 
 	}
 }
 

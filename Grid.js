@@ -72,7 +72,9 @@ class Grid {
       row.forEach(function(element, xPos){
       //Now the same. sPos here is an index from 0 to 10 (because our list contains 10 thingys)
       //element is what number it finds in the row (list) selected before.
+      if (grid[yPos+gridRow][xPos + gridCol] !== 1){
         grid[yPos + gridRow][xPos + gridCol] = block.tetronimo[yPos][xPos]
+      }
 
         //So it puts the letter at the place (yPos,xPos) of the Block(In the first loop round (0,0)) into
         //the grid to the place where the tetronimo spawns. Hence, it draws from left to right starting
