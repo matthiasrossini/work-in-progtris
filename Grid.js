@@ -15,7 +15,7 @@ class Grid {
     this.height = 20
     this.grid = this.createGrid()
     this.mainLoop()
-    
+
     // example shitty code - wait2 secs to render next step
      // this.draw(this.block, 0xff, 0x33, 0x88)
 
@@ -125,17 +125,37 @@ class Grid {
     var groundCollided = false
     this.block = this.createBlock()
 
-    while(blockCollided == false && groundCollided == false){
-      this.draw(this.block)
+// <<<<<<< HEAD
+//       this.draw(this.block)
       
-      blockCollided = this.collisionBlock(this.block)
-      groundCollided = this.collisionGround(this.block)
 
-      console.log(blockCollided, groundCollided)
+//       console.log(blockCollided, groundCollided)
       
-      this.undraw(this.block)
-      this.block.updatePos(this.block.row +1, this.block.col)
-    }
+//       this.undraw(this.block)
+//       this.block.updatePos(this.block.row +1, this.block.col)
+//     }
+// =======
+
+    // while(collision == false){
+      // setInterval(() => {
+  // while(blockCollided == false && groundCollided == false){
+     var loop = setInterval(()=> {
+        console.log("block")
+        this.draw(this.block)
+
+       blockCollided = this.collisionBlock(this.block)
+       groundCollided = this.collisionGround(this.block)
+       
+      if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
+          clearInterval(loop)
+      }
+       
+        this.undraw(this.block)
+        this.block.updatePos(this.block.row+1,this.block.col)
+    }, 250)
+ //  }
+      // }, 250)
+
   }
     
 
@@ -153,9 +173,9 @@ class Grid {
       createBlock()
     }
 
-    
+
     while(A=True){
-      
+
     }; (undraw(block);
       redraw(block) )
 
