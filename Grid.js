@@ -89,25 +89,56 @@ class Grid {
 //How do we make it with the slow appearing?
   }
 
+
+    
+  collisionGround (block){
+  var grid = this.grid
+  var height = this.height
+
+  if((block.row + block.tetronimo.length) == height){
+    return true
+  }
+  return false
+}
+
+  collisionBlock (block){
+  var grid = this.grid
+  //wenn unter 1 im block, eine 1 in grid. 
+  // wenn ypos block 
+    block.tetronimo.forEach(function(row, yPos){
+      row.forEach(function(element,xPos){
+        if((yPos < block.tetronimo.length && (block.tetronimo[yPos+1] !== 1)) || (yPos == block.tetronimo.length)){
+          // check grid here
+          // the lines are an or$
+          if(element == 1 && block.tetronimo[yPos+1] == 1){
+            return true
+          } 
+        }
+      })
+    })
+    return false
+}
+
   mainLoop(){
-    var collision = false
+
+    var blockCollided = false
+    var groundCollided = false
     this.block = this.createBlock()
-    while(collision == false){
+
+    while(blockCollided == false && groundCollided == false){
       this.draw(this.block)
+      
+      blockCollided = this.collisionBlock(this.block)
+      groundCollided = this.collisionGround(this.block)
+
+      console.log(blockCollided, groundCollided)
+      
       this.undraw(this.block)
       this.block.updatePos(this.block.row +1, this.block.col)
     }
   }
-  /*collisionCheck(){
-    var grid = this.grid
-    grid.forEach(function(row,yPos){
-      if (yPos == this.height){
-        return false
-      }
-      row.forEach(function(element, xPos){
+    
 
-      })
-    })*/
   displayGrid(grid){
     term.moveTo(1,1) // always start from 0,0 position on terminal
     grid.forEach(function(row){
