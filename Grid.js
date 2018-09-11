@@ -1,5 +1,6 @@
 var Block = require("./Block.js");
 var term = require("terminal-kit").terminal
+var player = require('play-sound')(opts = {})
 // term.resize(70,70)
 // term( 'The terminal size is %dx%d' , term.width , term.height ) ;
 // termRect = new term.Rect(0,20,0,40)
@@ -29,6 +30,10 @@ class Grid {
       }
     }
     // console.log(grid)
+    this.audio = player.play('tetris.mp3', function(err){
+       if (err && !err.killed) throw err
+    })
+
     return grid
   }
 
@@ -53,8 +58,8 @@ class Grid {
                               //correct blocks, remove zero lines.
     var blockCol = Math.floor(Math.random()*(this.width-4))
     var blockRow = 0
-    // var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
-    var blockType = "T"
+    var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
+    // var blockType = "T"
     var rotation = rotations[Math.floor(Math.random()*rotations.length)]
 
     var block = new Block(blockType, rotation, blockRow, blockCol);
@@ -137,7 +142,7 @@ class Grid {
   mainLoop(){
     var blockCollided = false
     var groundCollided = false
-
+    var audio = this.audio
 
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
@@ -165,9 +170,11 @@ class Grid {
         }
 
         if (name === "CTRL_C"){
+          audio.kill()
           process.exit()
         }
     })
+
 
      var loop = setInterval(()=> {
       this.draw(this.block)
@@ -204,6 +211,7 @@ class Grid {
         } else {
           term(" ")
         }
+        // term("_")
       })
       term("|")
       term("\n")
