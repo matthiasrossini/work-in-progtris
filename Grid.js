@@ -40,6 +40,8 @@ class Grid {
   checkCompleteLines() {
     var grid = this.grid
     var width = this.width
+    // clearInterval(this.loop)
+
     grid.forEach(function(item, index){
       if (item.reduce((a, b) => a + b, 0) == width){
         grid.splice(index,1 )
@@ -51,13 +53,17 @@ class Grid {
   }
 
   createBlock() {
-
-
     var blockTypes = ["I","J","O","S","T","Z"]
     var rotations = [0,1,2,3] // allows for more fair selection/distribution
                               //correct blocks, remove zero lines.
+
+    // console.log(this.grid[0])
+
+
+      // break
     var blockCol = Math.floor(Math.random()*(this.width-4))
-    var blockRow = 1
+
+    var blockRow = 0
     var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
     // var blockType = "T"
     var rotation = rotations[Math.floor(Math.random()*rotations.length)]
@@ -144,12 +150,20 @@ class Grid {
   mainLoop(){
     var blockCollided = false
     var groundCollided = false
-    var audio = this.audio
+    // var audio = this.audio
+    var grid = this.grid
+
+    if(grid[1].reduce((pv, cv) => pv+cv, 0) > 0){
+      // console.log()
+      clearInterval(loop)
+      term.moveTo(1,1)
+      term.red("GAME OVER")
+      return
+    }
 
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
     var width = this.width
-
     term.on('key', function(name, matches, data){
 
         if ( name === 'UP' ) {
@@ -182,6 +196,7 @@ class Grid {
       this.draw(this.block)
       groundCollided = this.collisionGround(this.block)
       blockCollided = this.collisionBlock(this.block)
+
 
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
           clearInterval(loop)
