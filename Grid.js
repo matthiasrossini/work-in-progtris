@@ -66,7 +66,7 @@ class Grid {
     var gridCol = block.col
     var grid = this.grid
 
-    block.tetronimo.forEach(function(row,yPos){
+    block.tetronimo.forEach(function(row,IndexRow){
       //small block contains tetronimo shape fromm class  Block, and position.
       //This means the loop starts searching through the tetronimo, which is a list of lists.
       //The ypos is a new notation in JavaScript. It is the integrated index function.
@@ -74,11 +74,11 @@ class Grid {
       //The 'row' is the actual element it finds at index position 0 in the beginning.
       //In our case this is the first row (a list!) of our chosen, randomly generated tetronimo.
       // Here the nenxt loops start going through the elements of this list.
-      row.forEach(function(element, xPos){
+      row.forEach(function(element, IndexElement){
       //Now the same. sPos here is an index from 0 to 10 (because our list contains 10 thingys)
       //element is what number it finds in the row (list) selected before.
-      if (grid[yPos+gridRow][xPos + gridCol] !== 1){
-        grid[yPos + gridRow][xPos + gridCol] = block.tetronimo[yPos][xPos]
+      if (grid[IndexRow + block.row][IndexElement + block.col] !== 1){
+        grid[IndexRow + block.row][IndexElement + block.col] = block.tetronimo[IndexRow][IndexElement]
       }
 
         //So it puts the letter at the place (yPos,xPos) of the Block(In the first loop round (0,0)) into
@@ -129,7 +129,6 @@ class Grid {
     }
       }
     }
-
 }
 
   mainLoop(){
@@ -137,7 +136,7 @@ class Grid {
     var groundCollided = false
 
 
-    var block = this.createBlock()
+    this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
     term.on('key', function(name, matches, data){
         if ( name === 'UP' ) {
@@ -149,7 +148,7 @@ class Grid {
     })
 
      var loop = setInterval(()=> {
-        this.draw(this.block)
+      this.draw(this.block)
       groundCollided = this.collisionGround(this.block)
       blockCollided = this.collisionBlock(this.block)
 
@@ -157,25 +156,17 @@ class Grid {
           clearInterval(loop)
           this.mainLoop()
       }
-        //if (e.keyCode == 38){
 
-
-      console.log("rotate acivated");
-
-        //  this.block.rotate()
-       // }
-
-        //if (e.keyCode == 40){
+          this.block.rotate()
+        if (this.col > 0){
+          var movableToLeft = this.block.moveLeft()
+          movableToleft = true
+        }
+        if (this.col + this.block.tetronimo[0].length < this.width){
+          var movableToRight = this.block.moveRight()
+          movableToRight = true
+        }
       //  this.block.moveDown()
-        //}
-
-        //if (e.keyCode == 37){
-        //this.block.moveLeft()
-        //}
-
-        //if (e.keyCode == 39){
-        //this.block.moveRight()
-        //}
         this.undraw(this.block)
       this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)

@@ -1,7 +1,7 @@
 var blocks = {
 	I : [[
 
-		
+
 
 		[1, 1, 1, 1],
 
@@ -22,9 +22,9 @@ var blocks = {
 
 	[
 
-		
 
-		
+
+
 
 		[1, 1, 1, 1],
 
@@ -308,23 +308,22 @@ class Block{
 	 }
 
 	 moveDown(){
-	 	this.row = blockRow +1
-		this.col = blockCol
+	 	this.row = this.row +1
 	}
 
 	 moveLeft(){
-	 	this.row = blockRow
-	 	this.col = blockCol -1
+	 	this.col = this.col -1
 	 }
 
-	 moveRigth(){
-		this.row = blockRow
-		this.col = blockCol +1
+//	 keyPressRight()
+	 moveRight(){
+	 if (movableToRight = true){
+		this.col = this.col +1
 	}
 
 
 	 }
-
+}
 
 
 module.exports = Block;
@@ -357,23 +356,6 @@ module.exports = Block;
 //
 // 	return false;
 // };
-//
-// Block.prototype.rotate = function(){
-// 	var blockmovement = 0;
-// 	var ne1tblock =  this.blockTypes[(this.blockTypeA + 1) % this.blockTypes.length];
-//
-// 	if (this._collides(0,0,ne1tblock)){
-// 		blockmovement = this.x > (width / 2) ? -1 : 1;
-// 	}
-//
-// 	if (!this._collides(blockmovement,0,nextblock)){
-// 		this.undraw();
-// 		this.x += blockmovement;
-// 		this.blockTypeA = (this.blockTypeA + 1) % this.blockTypes.length;
-// 		this.blockType = this.blockTypes[this.blockTypeA]
-// 		this.draw();
-// 	}
-// }
 //
 // Block.prototype.moveDown = function() {
 // 	if (this._collides(0, 1, this.blockmovement)) {
