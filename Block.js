@@ -302,9 +302,7 @@ class Block{
 
 	rotate(){
 		this.rotation = (this.rotation+1) % 4
-		console.log(this.rotation)
    	 this.tetronimo =  this.blockKind[this.rotation];
-	 console.log(this.tetronimo)
 	 }
 
 	 moveDown(){

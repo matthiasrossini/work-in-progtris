@@ -33,8 +33,10 @@ class Grid {
   }
 
   checkCompleteLines() {
-    this.grid.forEach(function(idx, item){
-      if (item.reduce((a, b) => a + b, 0) == this.width){
+    var grid = this.grid
+    var width = this.width
+    grid.forEach(function(item, index){
+      if (item.reduce((a, b) => a + b, 0) == width){
         grid.splice(idx,1 )
         grid.splice(0,0,new Array(width).fill(0))
       }
