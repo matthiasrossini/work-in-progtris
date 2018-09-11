@@ -157,7 +157,7 @@ class Grid {
           this.mainLoop()
       }
 
-          this.block.rotate()
+          // this.block.rotate()
         if (this.col > 0){
           var movableToLeft = this.block.moveLeft()
           movableToleft = true
