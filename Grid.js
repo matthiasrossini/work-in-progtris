@@ -5,6 +5,7 @@ var term = require("terminal-kit").terminal
 // termRect = new term.Rect(0,20,0,40)
 // term()
 term.reset()
+term.grabInput();
 
 class Grid {
 
@@ -136,42 +137,52 @@ class Grid {
     var groundCollided = false
 
 
-    this.block = this.createBlock()
-
+    var block = this.createBlock()
+    var block = this.block // because term has no acccess to this
+    term.on('key', function(name, matches, data){
+        if ( name === 'UP' ) {
+          block.rotate()
+        }
+        if (name === "CTRL_C"){
+          process.exit()
+        }
+    })
 
      var loop = setInterval(()=> {
         this.draw(this.block)
-        console.log(this.collisionBlock(this.block))
       groundCollided = this.collisionGround(this.block)
       blockCollided = this.collisionBlock(this.block)
 
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
-       console.log(blockCollided, groundCollided)
           clearInterval(loop)
           this.mainLoop()
       }
         //if (e.keyCode == 38){
-          this.block.rotate()
+
+
+      console.log("rotate acivated");
+
+        //  this.block.rotate()
        // }
-        
+
         //if (e.keyCode == 40){
-        this.block.moveDown()
+      //  this.block.moveDown()
         //}
 
         //if (e.keyCode == 37){
-        this.block.moveLeft()
+        //this.block.moveLeft()
         //}
 
         //if (e.keyCode == 39){
-        this.block.moveRight()
+        //this.block.moveRight()
         //}
         this.undraw(this.block)
-        this.block.updatePos(this.block.row+1,this.block.col)
+      this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)
    }
 
 
-  
+
 
 
   displayGrid(grid){
