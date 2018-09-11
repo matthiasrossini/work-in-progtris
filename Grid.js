@@ -30,9 +30,9 @@ class Grid {
       }
     }
     // console.log(grid)
-    this.audio = player.play('tetris.mp3', function(err){
-       if (err && !err.killed) throw err
-    })
+ //   this.audio = player.play('tetris.mp3', function(err){
+   //    if (err && !err.killed) throw err
+    //})
 
     return grid
   }
@@ -57,10 +57,12 @@ class Grid {
     var rotations = [0,1,2,3] // allows for more fair selection/distribution
                               //correct blocks, remove zero lines.
     var blockCol = Math.floor(Math.random()*(this.width-4))
-    var blockRow = 0
+    var blockRow = 1
     var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
     // var blockType = "T"
     var rotation = rotations[Math.floor(Math.random()*rotations.length)]
+
+
 
     var block = new Block(blockType, rotation, blockRow, blockCol);
       return block
@@ -170,7 +172,7 @@ class Grid {
         }
 
         if (name === "CTRL_C"){
-          audio.kill()
+          //audio.kill()
           process.exit()
         }
     })
