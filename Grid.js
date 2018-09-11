@@ -150,8 +150,21 @@ class Grid {
           clearInterval(loop)
           this.mainLoop()
       }
-        this.block.rotate()
+        //if (e.keyCode == 38){
+          this.block.rotate()
+       // }
         
+        //if (e.keyCode == 40){
+        this.block.moveDown()
+        //}
+
+        //if (e.keyCode == 37){
+        this.block.moveLeft()
+        //}
+
+        //if (e.keyCode == 39){
+        this.block.moveRight()
+        //}
         this.undraw(this.block)
         this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)

@@ -26,7 +26,7 @@ var blocks = {
 
 		
 
-		[0, 1, 1, 1],
+		[1, 1, 1, 1],
 
 	],
 
@@ -306,7 +306,24 @@ class Block{
    	 this.tetronimo =  this.blockKind[this.rotation];
 	 console.log(this.tetronimo)
 	 }
-}
+
+	 moveDown(){
+	 	this.row = blockRow +1
+		this.col = blockCol
+	}
+
+	 moveLeft(){
+	 	this.row = blockRow
+	 	this.col = blockCol -1
+	 }
+
+	 moveRigth(){
+		this.row = blockRow
+		this.col = blockCol +1
+	}
+
+
+	 }
 
 
 
