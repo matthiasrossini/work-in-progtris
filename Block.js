@@ -317,11 +317,7 @@ class Block{
 
 //	 keyPressRight()
 	 moveRight(){
-	 if (movableToRight = true){
 		this.col = this.col +1
-	}
-
-
 	 }
 }
 
