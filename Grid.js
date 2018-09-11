@@ -37,7 +37,7 @@ class Grid {
     var width = this.width
     grid.forEach(function(item, index){
       if (item.reduce((a, b) => a + b, 0) == width){
-        grid.splice(idx,1 )
+        grid.splice(index,1 )
         grid.splice(0,0,new Array(width).fill(0))
       }
     })
@@ -53,7 +53,8 @@ class Grid {
                               //correct blocks, remove zero lines.
     var blockCol = Math.floor(Math.random()*(this.width-4))
     var blockRow = 0
-    var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
+    // var blockType = blockTypes[Math.floor(Math.random()*blockTypes.length)]
+    var blockType = "T"
     var rotation = rotations[Math.floor(Math.random()*rotations.length)]
 
     var block = new Block(blockType, rotation, blockRow, blockCol);
@@ -197,12 +198,14 @@ class Grid {
     term.moveTo(1,1) // always start from 0,0 position on terminal
     grid.forEach(function(row){
       row.forEach(function(cell){
+        term("|")
         if(cell == 1){
-          term.red("x")
+          term.colorRgb(0x33, 0xff , 0x88, "x")
         } else {
-          term.colorRgb(0x33, 0xff , 0x88, " ")
+          term(" ")
         }
       })
+      term("|")
       term("\n")
     })
   }
