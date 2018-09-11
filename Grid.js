@@ -139,7 +139,7 @@ class Grid {
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
     var width = this.width
-    
+
     term.on('key', function(name, matches, data){
 
         if ( name === 'UP' ) {
@@ -156,11 +156,11 @@ class Grid {
           if (block.col > 0){
             block.moveLeft()
           }
-        }     
+        }
         if (name === "DOWN"){
            block.moveDown()
         }
- 
+
         if (name === "CTRL_C"){
           process.exit()
         }
@@ -194,7 +194,13 @@ class Grid {
     // console.log(grid)
     term.moveTo(1,1) // always start from 0,0 position on terminal
     grid.forEach(function(row){
-      term.colorRgb(0x33, 0xff , 0x88, row)
+      row.forEach(function(cell){
+        if(cell == 1){
+          term.red("x")
+        } else {
+          term.colorRgb(0x33, 0xff , 0x88, " ")
+        }
+      })
       term("\n")
     })
   }
