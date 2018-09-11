@@ -164,6 +164,7 @@ class Grid {
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
     var width = this.width
+    var grid = this.grid
     term.on('key', function(name, matches, data){
 
         if ( name === 'UP' ) {
@@ -177,8 +178,9 @@ class Grid {
 
         if(name == "LEFT") {
 
-          if (block.col > 0){
+          if (block.col > 0 || (grid[block.tetronimo.length-1][block.col-1] !== 1 && block.col >0)){
             block.moveLeft()
+
           }
         }
         if (name === "DOWN"){
