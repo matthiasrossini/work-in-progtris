@@ -138,10 +138,26 @@ class Grid {
 
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
+    var width = this.width
+    
     term.on('key', function(name, matches, data){
+
         if ( name === 'UP' ) {
           block.rotate()
         }
+        if(name == "RIGHT") {
+          if (block.col + block.tetronimo[0].length < width){
+            block.moveRight()
+          }
+        }
+
+        if(name == "LEFT") {
+
+          if (block.col > 0){
+            block.moveLeft()
+          }
+        }     
+
         if (name === "CTRL_C"){
           process.exit()
         }
@@ -154,18 +170,13 @@ class Grid {
 
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
           clearInterval(loop)
+          this.checkCompleteLines(this.grid)
           this.mainLoop()
       }
 
           // this.block.rotate()
-        if (this.col > 0){
-          var movableToLeft = this.block.moveLeft()
-          movableToleft = true
-        }
-        if (this.col + this.block.tetronimo[0].length < this.width){
-          var movableToRight = this.block.moveRight()
-          movableToRight = true
-        }
+
+
       //  this.block.moveDown()
         this.undraw(this.block)
       this.block.updatePos(this.block.row+1,this.block.col)
