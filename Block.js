@@ -286,19 +286,29 @@ var blocks = {
 class Block{
 	constructor(blockType, rotation, blockRow, blockCol){
 		this.blockKind = blocks[blockType];
-		this.tetronimo = blocks[blockType][rotation]
+		this.rotation = rotation
+
+		this.tetronimo = this.blockKind[this.rotation]
 		this.row = blockRow
 		this.col = blockCol
 
 
-		return
 	}
 
 	updatePos(yPos, xPos){
 		this.row = yPos
 		this.col = xPos
 	}
+
+	rotate(){
+		this.rotation = (this.rotation+1) % 4
+		console.log(this.rotation)
+   	 this.tetronimo =  this.blockKind[this.rotation];
+	 console.log(this.tetronimo)
+	 }
 }
+
+
 
 module.exports = Block;
 // block = new Block("J", 1)

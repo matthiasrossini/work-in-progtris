@@ -43,6 +43,8 @@ class Grid {
   }
 
   createBlock() {
+
+
     var blockTypes = ["I","J","O","S","T","Z"]
     var rotations = [0,1,2,3] // allows for more fair selection/distribution
                               //correct blocks, remove zero lines.
@@ -52,7 +54,9 @@ class Grid {
     var rotation = rotations[Math.floor(Math.random()*rotations.length)]
 
     var block = new Block(blockType, rotation, blockRow, blockCol);
-    return block
+      return block
+
+
     //THe new is necessary in Javascxript to show it is a new object of a certain class.
   }
 
@@ -62,7 +66,7 @@ class Grid {
     var grid = this.grid
 
     block.tetronimo.forEach(function(row,yPos){
-      //small block contains tetroimo shape fromm class  Block, and position.
+      //small block contains tetronimo shape fromm class  Block, and position.
       //This means the loop starts searching through the tetronimo, which is a list of lists.
       //The ypos is a new notation in JavaScript. It is the integrated index function.
       //yPos actually is in python ypos = len [a_list]. It says it takes as many steps as the list long is.
@@ -128,27 +132,33 @@ class Grid {
 }
 
   mainLoop(){
-
     var blockCollided = false
     var groundCollided = false
+
+
     this.block = this.createBlock()
+
 
      var loop = setInterval(()=> {
         this.draw(this.block)
         console.log(this.collisionBlock(this.block))
       groundCollided = this.collisionGround(this.block)
       blockCollided = this.collisionBlock(this.block)
+
       if(blockCollided || groundCollided){ // stop loop if any collide condition returns true
        console.log(blockCollided, groundCollided)
           clearInterval(loop)
           this.mainLoop()
       }
-
+        this.block.rotate()
+        
         this.undraw(this.block)
         this.block.updatePos(this.block.row+1,this.block.col)
     }, 250)
+   }
 
-  }
+
+  
 
 
   displayGrid(grid){
@@ -170,11 +180,15 @@ class Grid {
       })
     })
   }
+
+
 }
 
 
 
+
 var my_grid = new Grid()
+
 // console.log(Grid.createGrid())
 //fct to generate blocks
 //fct to check if it is filled.
