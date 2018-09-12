@@ -16,7 +16,8 @@ class Grid {
     this.grid = this.createGrid()
     this.mainLoop()
 
-    // example shitty code - wait2 secs to render next step
+    // example shitty code - wait2 s
+    ecs to render next step
      // this.draw(this.block, 0xff, 0x33, 0x88)
   }
 
@@ -163,8 +164,6 @@ class Grid {
 
     this.block = this.createBlock()
     var block = this.block // because term has no acccess to this
-    var row = this.block.row
-    var col = this.block.col
     var width = this.width
     var grid = this.grid
     term.on('key', function(name, matches, data){
@@ -180,9 +179,9 @@ class Grid {
 
         if(name == "LEFT") {
 
-          // if (block.col > 0 || (grid[block.row +block.tetronimo.length ][block.col-1] !== 1 && block.col >0)){
-          if (block.col > 0) {
+          if (block.col > 0 || (grid[block.tetronimo.length-1][block.col-1] !== 1 && block.col >0)){
             block.moveLeft()
+
           }
         }
         if (name === "DOWN"){
