@@ -75,7 +75,7 @@ class Grid {
       return block
 
 
-    //THe new is necessary in Javascxript to show it is a new object of a certain class.
+    //The new is necessary in Javascxript to show it is a new object of a certain class.
   }
 
   draw(block){
